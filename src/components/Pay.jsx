@@ -25,7 +25,11 @@ function Pag() {
                 <form className=''>
                     <label>
                         <p>Número</p>
-                        <input type="text" value={numberCard} onChange={(e) => setNumberCard(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required maxLength="16"/>
+                        <input type="text" value={numberCard} onChange={(e) => {
+                            if (!isNaN(e.target.value)) {
+                                setNumberCard(e.target.value);
+                            }
+                        }}  className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required maxLength="16" pattern="[0-9]+"/>
                     </label>
 
                     <label>

@@ -60,7 +60,7 @@ function Bag() {
                     <strong><p>{`R$ ${price.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}`}</p></strong>
                 </div>
                 <div className='flex justify-center'>
-                    <Link to='pay'><button className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Seguir para o pagamento</button></Link>
+                    <Link to='/pay'><button className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Seguir para o pagamento</button></Link>
                 </div>
             </div>
         </div>
