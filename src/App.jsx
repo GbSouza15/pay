@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Bag from "./components/Bag.jsx";
 import SharedLayout from "./pages/SharedLayout.jsx";
@@ -14,7 +13,7 @@ function App() {
             <Route path='/' element={<SharedLayout/>}>
                 <Route index element={<Bag/>}></Route>
                 <Route path='pay' element={<Pay/>}></Route>
-                <Route path='confirm' element={<ConfirmPay/>}></Route>
+                <Route path='confirmPay' element={<ConfirmPay/>}></Route>
             </Route>
         </Routes>
     </BrowserRouter>

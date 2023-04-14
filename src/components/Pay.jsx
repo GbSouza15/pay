@@ -11,6 +11,7 @@ function Pag() {
     const [nameCard, setNameCard] = useAtom(userNameCard)
     const [dateCard, setDateCard] = useAtom(userDateCard)
     const [cvc, setCvc] = useAtom(userCardCvc)
+    console.log(dateCard)
 
     function handleClick() {
 
@@ -24,7 +25,7 @@ function Pag() {
                 <form className=''>
                     <label>
                         <p>Número</p>
-                        <input type="text" value={numberCard} onChange={(e) => setNumberCard(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required/>
+                        <input type="text" value={numberCard} onChange={(e) => setNumberCard(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required maxLength="16"/>
                     </label>
 
                     <label>
@@ -35,12 +36,12 @@ function Pag() {
                     <div className='flex justify-between'>
                         <label>
                             <p>Data de validade</p>
-                            <input type="text" value={dateCard} onChange={(e) => setDateCard(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required/>
+                            <input type="text" value={dateCard} onChange={(e) => setDateCard(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' maxLength={5} placeholder="Ex: MM/AA" required/>
                         </label>
 
                         <label>
                             <p>CVC</p>
-                            <input type="text" value={cvc} onChange={(e) => setCvc(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' required/>
+                            <input type="text" value={cvc} onChange={(e) => setCvc(e.target.value)} className='border-2 border-gray-300 rounded-[.5rem] w-[100%] px-[1rem] h-[2rem]' maxLength={3} placeholder="Ex: 123" required/>
                         </label>
                     </div>
 
@@ -59,7 +60,7 @@ function Pag() {
                 </div>
 
                 <div className='flex justify-center'>
-                    <button  className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Finalizar Pagamento</button>
+                    <Link to='/confirmPay'><button onClick={handleClick} className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Finalizar Pagamento</button></Link>
                 </div>
             </div>
         </div>
