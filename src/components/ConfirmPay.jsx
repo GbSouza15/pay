@@ -11,7 +11,6 @@ function ConfirmPay() {
     const [numberCard, setNumberCard] = useAtom(userCardNumber)
     const [nameCard, setNameCard] = useAtom(userNameCard)
     const [dateCard, setDateCard] = useAtom(userDateCard)
-    const [cvc, setCvc] = useAtom(userCardCvc)
 
     return (
         <div>
