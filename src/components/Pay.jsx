@@ -1,18 +1,37 @@
 import { useAtom } from 'jotai'
 import { nameProduct, priceProduct, userCardNumber, userNameCard, userDateCard, userCardCvc } from "../atoms/StatesProducts.jsx";
-import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Pag() {
-
     const [names, setNames] = useAtom(nameProduct)
     const [price, setPrice] = useAtom(priceProduct)
-
     const [numberCard, setNumberCard] = useAtom(userCardNumber)
     const [nameCard, setNameCard] = useAtom(userNameCard)
     const [dateCard, setDateCard] = useAtom(userDateCard)
     const [cvc, setCvc] = useAtom(userCardCvc)
-    console.log(dateCard)
+    const navigate = useNavigate()
 
+    function validateInputs() {
+        let isValid;
+
+        if (numberCard.length !== 16) {
+            alert("Por favor, digite um número de cartão de crédito válido com 16 dígitos.");
+            isValid = false;
+        } else if (nameCard.length < 3) {
+            alert("Por favor, digite o nome do titular do cartão.");
+            isValid = false;
+        } else if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(dateCard)) {
+            alert("Por favor, digite uma data de validade de cartão de crédito válida.");
+            isValid = false;
+        } else if (cvc.length !== 3) {
+            alert("Por favor, digite um código CVC válido com 3 dígitos.");
+            isValid = false;
+        } else {
+            isValid = true
+        }
+
+        isValid ? navigate('/confirmPay') : console.log("Erro")
+    }
 
     return (
         <div className=''>
@@ -60,7 +79,7 @@ function Pag() {
                 </div>
 
                 <div className='flex justify-center'>
-                    <Link to='/confirmPay'><button className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Finalizar Pagamento</button></Link>
+                    <button className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]' onClick={validateInputs}>Finalizar Pagamento</button>
                 </div>
             </div>
         </div>

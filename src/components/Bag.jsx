@@ -38,17 +38,15 @@ function Bag() {
 
     return (
         <div>
-
-                <div className='flex flex-col items-center py-[2rem] rounded-[.5rem]'>
-                    {names.map((name, index) => (
-                        <div className='flex bg-white items-center w-[95%] gap-[0.938rem] p-[1.5rem] justify-between ' key={index}>
-                            <img src={img[index]} alt="" />
-                            <p className='w-[15rem] text-[.75rem]'>{name}</p>
-                            <p><strong>R$ {price[index].toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></p>
-                        </div>
-                    ))}
-                </div>
-
+            <div className='flex flex-col items-center py-[2rem] rounded-[.5rem]'>
+                {names.map((name, index) => (
+                    <div className='flex bg-white items-center w-[95%] gap-[0.938rem] p-[1.5rem] justify-between ' key={index}>
+                        <img src={img[index]} alt="" />
+                        <p className='w-[15rem] text-[.75rem]'>{name}</p>
+                        <p><strong>R$ {price[index].toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></p>
+                    </div>
+                ))}
+            </div>
 
             <div className='bg-white p-[2rem]'>
                 <div className='flex justify-between'>
