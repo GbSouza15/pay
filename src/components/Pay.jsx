@@ -13,10 +13,6 @@ function Pag() {
     const [cvc, setCvc] = useAtom(userCardCvc)
     console.log(dateCard)
 
-    function handleClick() {
-
-    }
-
 
     return (
         <div className=''>
@@ -55,16 +51,16 @@ function Pag() {
             <div className='bg-white mt-[2rem] p-[2rem]'>
                 <div className='flex justify-between'>
                     <p>Produtos: ({`${names.length} items`})</p>
-                    <p>{`R$ ${price.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}`}</p>
+                    <p>{`R$ ${price.reduce((accumulator, currentValue) => accumulator + currentValue, 0).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`}</p>
                 </div>
 
                 <div className='flex justify-between'>
-                    <strong><p>{`Subtotal`}</p></strong>
-                    <strong><p>{`R$ ${price.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}`}</p></strong>
+                    <strong><p className='text-[1.2rem]'>{`Subtotal`}</p></strong>
+                    <strong><p className='text-[1.2rem]'>{`R$ ${price.reduce((accumulator, currentValue) => accumulator + currentValue, 0).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`}</p></strong>
                 </div>
 
                 <div className='flex justify-center'>
-                    <Link to='/confirmPay'><button onClick={handleClick} className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Finalizar Pagamento</button></Link>
+                    <Link to='/confirmPay'><button className='bg-[#9222DC] text-white rounded-[.5rem] w-[20rem] h-[3rem] mt-[1.5rem]'>Finalizar Pagamento</button></Link>
                 </div>
             </div>
         </div>
